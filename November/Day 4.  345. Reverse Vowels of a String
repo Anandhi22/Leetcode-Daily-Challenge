@@ -1,0 +1,35 @@
+class Solution {
+    public String reverseVowels(String s) {
+
+        String vowels = "AEIOUaeiou";
+        char[] arr = s.toCharArray();
+        int i = 0;
+        int j = s.length()-1;
+        while(i<j)
+        {
+            char ch1 = arr[i];
+            char ch2 = arr[j];
+            if(vowels.indexOf(ch1)!=-1 && vowels.indexOf(ch2)!=-1)
+            {
+                char temp = arr[i];
+                arr[i]= arr[j];
+                arr[j]=temp;
+                i++;
+                j--;
+            }
+            else if (vowels.indexOf(ch1)!=-1)
+            j--;
+            else if(vowels.indexOf(ch2)!=-1)
+            i++;
+            else{
+                i++;
+                j--;
+            }
+        }
+
+        return String.valueOf(arr);
+    }
+}
+
+//Time Complexcity = o(n)
+//Space Complexcity = o(n)
